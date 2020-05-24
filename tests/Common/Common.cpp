@@ -1,42 +1,6 @@
 #include "Common.h"
 #include <string.h>
 
-TestPacking::TestPacking()
-{
-}
-
-TestPacking1::TestPacking1()
-{
-}
-
-TestPacking1::~TestPacking1()
-{
-}
-
-TestPacking2::TestPacking2()
-{
-}
-
-TestPacking2::~TestPacking2()
-{
-}
-
-TestPacking4::TestPacking4()
-{
-}
-
-TestPacking4::~TestPacking4()
-{
-}
-
-TestPacking8::TestPacking8()
-{
-}
-
-TestPacking8::~TestPacking8()
-{
-}
-
 Foo::NestedAbstract::~NestedAbstract()
 {
 }
@@ -153,10 +117,6 @@ bool Bar::operator ==(const Bar& arg1) const
 bool operator ==(Bar::Item item, const Bar& bar)
 {
     return item == bar.RetItem1();
-}
-
-Bar2::Nested::Nested()
-{
 }
 
 Bar2::Nested::operator int() const
@@ -873,16 +833,8 @@ Bar& TestIndexedProperties::operator[](const Foo& key)
     return bar;
 }
 
-TestVariables::TestVariables()
-{
-}
-
 int TestVariables::VALUE;
 void TestVariables::SetValue(int value) { VALUE = value; }
-
-TestWideStrings::TestWideStrings()
-{
-}
 
 LPCWSTR TestWideStrings::GetWidePointer() { return L"Hello"; }
 
@@ -999,10 +951,6 @@ void ChangedAccessOfInheritedProperty::setProtectedProperty(int value)
 {
 }
 
-ReturnsEmpty::ReturnsEmpty()
-{
-}
-
 Empty ReturnsEmpty::getEmpty()
 {
     return Empty();
@@ -1082,10 +1030,6 @@ int OverridesNonDirectVirtual::retInt(const Foo& foo)
     return 3;
 }
 
-AbstractWithVirtualDtor::AbstractWithVirtualDtor()
-{
-}
-
 AbstractWithVirtualDtor::~AbstractWithVirtualDtor()
 {
 }
@@ -1129,10 +1073,6 @@ int func_union(union_t u)
     return u.c;
 }
 
-HasProtectedEnum::HasProtectedEnum()
-{
-}
-
 void HasProtectedEnum::function(ProtectedEnum param)
 {
 }
@@ -1142,10 +1082,6 @@ void FuncWithTypeAlias(custom_int_t i)
 }
 
 void FuncWithTemplateTypeAlias(TypeAliasTemplate<int> i)
-{
-}
-
-HasAbstractOperator::~HasAbstractOperator()
 {
 }
 
@@ -1324,14 +1260,6 @@ AmbiguousParamNames::~AmbiguousParamNames()
 {
 }
 
-HasPropertyNamedAsParent::HasPropertyNamedAsParent()
-{
-}
-
-HasPropertyNamedAsParent::~HasPropertyNamedAsParent()
-{
-}
-
 void integerOverload(int i)
 {
 }
@@ -1376,7 +1304,7 @@ LPCSTR TakeTypedefedMappedType(LPCSTR string)
     return UTF8.data();
 }
 
-StructWithCopyCtor::StructWithCopyCtor() {}
+StructWithCopyCtor::StructWithCopyCtor() : mBits(0) {}
 StructWithCopyCtor::StructWithCopyCtor(const StructWithCopyCtor& other) : mBits(other.mBits) {}
 
 uint16_t TestStructWithCopyCtorByValue(StructWithCopyCtor s)
@@ -1392,29 +1320,13 @@ DerivedCovariant::~DerivedCovariant()
 {
 }
 
-NonPrimitiveType::NonPrimitiveType()
-{
-}
-
 int NonPrimitiveType::GetFoo()
 {
     return foo;
 }
 
-TestFixedNonPrimitiveArrays::TestFixedNonPrimitiveArrays() 
-{
-}
-
-TestGetterSetterToProperties::TestGetterSetterToProperties()
-{
-}
-
 int TestGetterSetterToProperties::getWidth() { return 640; }
 int TestGetterSetterToProperties::getHeight() { return 480; }
-
-PointerToTypedefPointerTest::PointerToTypedefPointerTest()
-{
-}
 
 void DLL_API PointerToTypedefPointerTestMethod(LPPointerToTypedefPointerTest* lp, int valToSet)
 {
@@ -1431,7 +1343,7 @@ TestArraysPointers::TestArraysPointers(MyEnum* values, int count)
     if (values && count) Value = values[0];
 }
 
-TestCopyConstructorRef::TestCopyConstructorRef()
+TestCopyConstructorRef::TestCopyConstructorRef() : A(0), B(0)
 {
 }
 

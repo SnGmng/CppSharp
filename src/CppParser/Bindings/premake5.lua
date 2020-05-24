@@ -1,6 +1,6 @@
 include ("CSharp")
-
-if EnabledCLIProjects() and not os.getenv("CI") then
+-- TODO: fix the C# parser bindings on win
+if EnabledCLIProjects() and os.ishost("windows") then
 
 include ("CLI")
 

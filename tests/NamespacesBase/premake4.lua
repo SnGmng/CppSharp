@@ -12,7 +12,7 @@ function SetupWrapper(name)
 
     files
     {
-      path.join(gendir, "NamespacesDerived", name .. ".cs"),
+      path.join(gendir, name .. ".cs"),
     }
 end
 

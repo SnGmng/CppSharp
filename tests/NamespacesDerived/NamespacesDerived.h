@@ -47,6 +47,8 @@ template <typename T> class TemplateClass;
 class DLL_API Derived2 : public Base3
 {
 public:
+    // HACK: don't delete this - its external symbols linked by lld crash on Unix
+    // https://bugs.llvm.org/show_bug.cgi?id=48325
     Derived2();
     ~Derived2();
     Base3 baseComponent;
@@ -68,6 +70,8 @@ private:
 class DLL_API HasVirtualInDependency : public HasVirtualInCore
 {
 public:
+    // HACK: don't delete this - its external symbols linked by lld crash on Unix
+    // https://bugs.llvm.org/show_bug.cgi?id=48325
     HasVirtualInDependency();
     HasVirtualInDependency* managedObject;
     int callManagedOverride();
@@ -86,6 +90,8 @@ public:
 class DLL_API DerivedFromSecondaryBaseInDependency : public Derived, public SecondaryBase
 {
 public:
+    // HACK: don't delete this - its external symbols linked by lld crash on Unix
+    // https://bugs.llvm.org/show_bug.cgi?id=48325
     DerivedFromSecondaryBaseInDependency();
     ~DerivedFromSecondaryBaseInDependency();
 };

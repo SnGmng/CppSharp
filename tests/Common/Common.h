@@ -14,39 +14,26 @@ public:
     int i1;
     int i2;
     bool b;
-    TestPacking();
 };
 
 #pragma pack(1)
 class DLL_API TestPacking1: public TestPacking
 {
-public:
-    TestPacking1();
-    ~TestPacking1();
 };
 
 #pragma pack(2)
 class DLL_API TestPacking2: public TestPacking
 {
-public:
-    TestPacking2();
-    ~TestPacking2();
 };
 
 #pragma pack(4)
 class DLL_API TestPacking4: public TestPacking
 {
-public:
-    TestPacking4();
-    ~TestPacking4();
 };
 
 #pragma pack(8)
 class DLL_API TestPacking8: public TestPacking
 {
-public:
-    TestPacking8();
-    ~TestPacking8();
 };
 #pragma pack()
 
@@ -76,7 +63,7 @@ public:
         EmptyEnum2
     };
 
-    class NestedAbstract
+    class DLL_API NestedAbstract
     {
     public:
         virtual ~NestedAbstract();
@@ -167,7 +154,6 @@ struct DLL_API Bar2 : public Bar
 
     struct DLL_API Nested
     {
-        Nested();
         operator int() const;
     };
 
@@ -659,7 +645,6 @@ public:
 // Tests variables
 struct DLL_API TestVariables
 {
-    TestVariables();
     static int VALUE;
     void SetValue(int value = VALUE);
 };
@@ -667,7 +652,6 @@ struct DLL_API TestVariables
 typedef const wchar_t * LPCWSTR;
 struct DLL_API TestWideStrings
 {
-    TestWideStrings();
     LPCWSTR GetWidePointer();
     LPCWSTR GetWideNullPointer();
 };
@@ -699,7 +683,6 @@ public:
 class DLL_API NonPrimitiveType
 {
 public:
-    NonPrimitiveType();
     int GetFoo();
 
     int foo;
@@ -708,13 +691,11 @@ public:
 class DLL_API TestFixedNonPrimitiveArrays
 {
 public:
-    TestFixedNonPrimitiveArrays();
     NonPrimitiveType NonPrimitiveTypeArray[3];
 };
 
 struct DLL_API TestGetterSetterToProperties
 {
-    TestGetterSetterToProperties();
     int getWidth();
     int getHeight();
 };
@@ -923,7 +904,6 @@ class DLL_API Empty
 class DLL_API ReturnsEmpty
 {
 public:
-    ReturnsEmpty();
     Empty getEmpty();
 };
 
@@ -1063,7 +1043,6 @@ AbstractTemplate<T>::AbstractTemplate()
 class DLL_API AbstractWithVirtualDtor
 {
 public:
-    AbstractWithVirtualDtor();
     virtual ~AbstractWithVirtualDtor();
     virtual void abstract() = 0;
 };
@@ -1139,8 +1118,6 @@ int DLL_API func_union(union_t u);
 
 class DLL_API HasProtectedEnum
 {
-public:
-    HasProtectedEnum();
 protected:
     enum class ProtectedEnum
     {
@@ -1190,7 +1167,6 @@ private:
 class DLL_API HasAbstractOperator
 {
 public:
-    ~HasAbstractOperator();
     virtual bool operator==(const HasAbstractOperator& other) = 0;
 };
 
@@ -1346,8 +1322,6 @@ public:
 class DLL_API HasPropertyNamedAsParent
 {
 public:
-    HasPropertyNamedAsParent();
-    ~HasPropertyNamedAsParent();
     int hasPropertyNamedAsParent;
 };
 
@@ -1538,7 +1512,6 @@ QScopedPointer<QObjectData> d_ptr;
 
 struct DLL_API PointerToTypedefPointerTest
 {
-    PointerToTypedefPointerTest();
     int val;
 };
 typedef PointerToTypedefPointerTest *LPPointerToTypedefPointerTest;

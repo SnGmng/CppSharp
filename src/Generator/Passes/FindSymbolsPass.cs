@@ -89,7 +89,7 @@ namespace CppSharp.Passes
             {
                 if (mangledDecl is Variable variable && variable.IsConstExpr)
                     return true;
-
+                // TODO: debug any remaining missing symbols in tests
                 Diagnostics.Warning("Symbol not found: {0}", mangledDecl.Mangled);
                 return false;
             }
